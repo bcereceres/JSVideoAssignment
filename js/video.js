@@ -2,15 +2,19 @@ var video = document.querySelector("#player1.video");
 // Given function to test if the page loads
 window.addEventListener("load", function() {
 	console.log("Good job opening the window")
+  video.autoplay = false;
+  video.loop = false;
 	video.load();
 });
 
 // Play the video function
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play video")
-  console.log("Current volume is" + ' ' + document.getElementById("slider").value + "%")
-  video.volume = document.getElementById("slider").value / 1000;
 	video.play();
+  console.log("Current volume is" + ' ' + document.getElementById("slider").value + "%")
+  this.value = document.getElementById("slider").value 
+  document.getElementById("volume").innerHTML = this.value + "%";
+  video.volume = document.getElementById("slider").value / 1000;
 });
 
 // Pause the video function
@@ -64,7 +68,6 @@ document.querySelector("#skip").addEventListener("click", function() {
 // Slider Functions starts here
 var slider = document.getElementById("slider");
 var output = document.getElementById("volume");
-output.innerHTML = slider.value + "%";
 slider.oninput = function() {
   output.innerHTML = this.value + "%";
   video.volume = slider.value / 1000;
