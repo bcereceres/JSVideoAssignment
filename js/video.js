@@ -5,6 +5,8 @@ window.addEventListener("load", function() {
   video.autoplay = false;
   video.loop = false;
 	video.load();
+  video.pause();
+  video.volume = this.document.querySelector("#slider").value / 100
 });
 
 // Play the video function
@@ -67,7 +69,7 @@ var slider = document.getElementById("slider");
 var output = document.getElementById("volume");
 slider.oninput = function() {
   output.innerHTML = this.value + "%";
-  video.volume = slider.value / 1000;
+  video.volume = slider.value / 100;
   console.log("Video volume is" + ' ' + slider.value / 100)
 }
 // Slider Function ends here
