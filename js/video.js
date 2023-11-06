@@ -6,6 +6,7 @@ window.addEventListener("load", function() {
 });
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play video")
+  console.log("Current volume is" + ' ' + document.getElementById("slider").value + "%")
 	video.play();
 });
 document.querySelector("#pause").addEventListener("click", function() {
@@ -47,3 +48,19 @@ document.querySelector("#skip").addEventListener("click", function() {
     muteButton.innerHTML = isMuted ? "Unmute" : "Mute";
     }
 // Mute Functions ends here
+
+// Slider Functions starts here
+var slider = document.getElementById("slider");
+var output = document.getElementById("volume");
+output.innerHTML = slider.value;
+slider.oninput = function() {
+  output.innerHTML = this.value + "%";
+}
+// Slider Function ends here
+
+document.querySelector("#vintage").addEventListener("click", function(){
+
+});
+document.querySelector("#orig").addEventListener("click", function(){
+
+});
