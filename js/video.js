@@ -7,6 +7,7 @@ window.addEventListener("load", function() {
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play video")
   console.log("Current volume is" + ' ' + document.getElementById("slider").value + "%")
+  video.volume = document.getElementById("slider").value / 1000;
 	video.play();
 });
 document.querySelector("#pause").addEventListener("click", function() {
@@ -55,12 +56,13 @@ var output = document.getElementById("volume");
 output.innerHTML = slider.value + "%";
 slider.oninput = function() {
   output.innerHTML = this.value + "%";
+  video.volume = slider.value / 1000;
+  console.log("Video volume is" + ' ' + slider.value / 100)
 }
 // Slider Function ends here
-
 document.querySelector("#vintage").addEventListener("click", function(){
-
+  video.classList.add("oldSchool")
 });
 document.querySelector("#orig").addEventListener("click", function(){
-
+  video.classList.remove("oldSchool")
 });
