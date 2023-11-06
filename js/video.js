@@ -1,29 +1,39 @@
 var video = document.querySelector("#player1.video");
-
+// Given function to test if the page loads
 window.addEventListener("load", function() {
 	console.log("Good job opening the window")
 	video.load();
 });
+
+// Play the video function
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play video")
   console.log("Current volume is" + ' ' + document.getElementById("slider").value + "%")
   video.volume = document.getElementById("slider").value / 1000;
 	video.play();
 });
+
+// Pause the video function
 document.querySelector("#pause").addEventListener("click", function() {
 	console.log("Pause video")
 	video.pause();
 });
+
+// Make the video slower function
 document.querySelector("#slower").addEventListener("click", function() {
 	console.log("Slow down video")
 	video.playbackRate -= 0.1;
 	console.log("Slowed down video to:" + ' ' + video.playbackRate.toFixed(2))
 });
+
+// Make the video faster function
 document.querySelector("#faster").addEventListener("click", function() {
 	console.log("Speed up video")
 	video.playbackRate += 0.1;
     console.log("Sped up video to:" + ' ' + video.playbackRate.toFixed(2));
 });
+
+// Skip ahead in video function
 document.querySelector("#skip").addEventListener("click", function() {
 	console.log("Skip ahead in video")
 	newTime = video.currentTime + 10;
@@ -34,6 +44,7 @@ document.querySelector("#skip").addEventListener("click", function() {
     }
     console.log("Skipped ahead to:" + ' ' + video.currentTime.toFixed(2) + ' ' + "seconds");
 });
+
 // Mute Function Starts here
     muteButton = document.querySelector("#mute");
     let isMuted = false;
@@ -60,9 +71,13 @@ slider.oninput = function() {
   console.log("Video volume is" + ' ' + slider.value / 100)
 }
 // Slider Function ends here
+
+// Make video old school function
 document.querySelector("#vintage").addEventListener("click", function(){
   video.classList.add("oldSchool")
 });
+
+// Make video back to original function
 document.querySelector("#orig").addEventListener("click", function(){
   video.classList.remove("oldSchool")
 });
