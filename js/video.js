@@ -11,10 +11,7 @@ window.addEventListener("load", function() {
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play video")
 	video.play();
-  console.log("Current volume is" + ' ' + document.getElementById("slider").value + "%")
-  this.value = document.getElementById("slider").value 
-  document.getElementById("volume").innerHTML = this.value + "%";
-  video.volume = document.getElementById("slider").value / 1000;
+  document.querySelector("#volume").textContent = Math.round(video.volume * 100) + "%";
 });
 
 // Pause the video function
